@@ -1,0 +1,24 @@
+"""
+Check whether the substring is a palindrome or not"""
+def checkPalin(str):
+    if len(str)<2:
+        return True
+    elif str[0]==str[-1]:
+        return checkPalin(str[1:-1])  # it recurs the string to find whether the elements are equal or not
+    else:
+        False
+        
+def sub_string(str): 
+    new_str=[]
+    res=set()
+    for i in range(0,len(str)-1):            # it finds all the substring of given string whose length is grether than or equal to 2
+        for j in range(i+1,len(str)):
+            new_str.append(str[i:j+1])
+    for i in new_str:
+        ans=checkPalin(i)
+        if ans:
+            res.add(i)
+    print("Unique palimdromes are ",end=" ")
+    print(res)
+my_string=input()
+sub_string(my_string)
