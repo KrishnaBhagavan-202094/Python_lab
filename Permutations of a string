@@ -1,0 +1,12 @@
+my_str="STR"                                                 
+print("The given string is :",my_str)
+per_str=[]
+# Here we are going to take three for loops because we have three letters in the string.
+for i in range(0,3):                                    
+    for j in range (0,3):
+        if i!=j:                                #because in permutations a letter can`t be repeated
+            for k in range (0,3):
+                if j!=k and i!=k:               #because in permutations a letter can`t be repeated
+              #we append the strings obtained by the indexes into a list per_str
+                    per_str.append(my_str[i]+my_str[j]+my_str[k])  
+print("Permutations of the given string are :",per_str)
