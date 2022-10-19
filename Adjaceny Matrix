@@ -1,11 +1,14 @@
-vertices = {0, 1, 2, 3, 4, 5}
-edges = {(0, 1), (1, 2), (0, 3), (1, 3), (3, 4), (2, 5), (4, 5), (2, 4)}    #contains vertex with edge
-adjacencyList={}
-for vertex in vertices:
-    adjacencyList[vertex]=[]                                                #forms a matrix with given verices as indices
-for edge in edges:
-    v1 = edge[0]                                                            #store vertex value in v1
-    v2 = edge[1]                                                            #store edge value in v2
-    adjacencyList[v1].append(v2)                                            #now append the edge with its respective vertex
-print("The adjacency List representing a directed graph is:")
-print(adjacencyList)                                                        #now print this adjacency list
+def adjacency_matrix(weighted_edges,v):
+    matrix = [[0]*v for b in range(v)]
+    for edge in weighted_edges:
+        v1, v2, w = edge
+        matrix[v1][v2] = w
+        matrix[v2][v1] = w
+    return matrix
+if __name__=="__main__":
+   vertex=int(input("Number of vertices : "))
+   edges=int(input("Number of edges : "))
+   weighted_edges=[list(map(int, input(f"edge-{i} : ").split(" "))) for i in range(edges)]
+   res=adjacency_matrix(weighted_edges,vertex)
+   for i in res:
+       print(i)
