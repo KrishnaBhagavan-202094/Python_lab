@@ -1,0 +1,18 @@
+class Graph:
+    def __init__(self, edges, v):
+        self.adjList = [None] * v
+        for i in range(v):
+            self.adjList[i] = []
+        for (n1,n2, weight) in edges:
+            self.adjList[n1].append((n2, weight))
+    def display(self,graph):
+        for n1 in range(len(graph.adjList)):
+            for (n2, weight) in graph.adjList[n1]:
+                print(f'({n1} —> {n2}, {weight}) ', end='')
+            print()
+if __name__ == '__main__':
+    vertex=int(input("Number of vertices: "))
+    edges=int(input("Number of edges: "))
+    weighted_edges=[list(map(int,input(f"Edge-{i+1}: ").split(" "))) for i in range(edges)]
+    graph = Graph(weighted_edges,vertex)
+    graph.display(graph)
