@@ -1,0 +1,7 @@
+def duplicate(numbers):
+    duplicates = [number for number in numbers if numbers.count(number) > 1]
+    duplicate_list = list(set(duplicates))
+    return duplicate_list
+numbers = list(map(int,input("Enter list : ").split(" ")))
+duplicate_list=duplicate(numbers)
+print(f"Duplicate list of elements : {duplicate_list}")
